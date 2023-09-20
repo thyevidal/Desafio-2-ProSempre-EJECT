@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
-
+def handler404(request, exception):
+    return render(request, 'error-404.html')
+ 
 def index(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
